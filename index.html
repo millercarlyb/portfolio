@@ -314,6 +314,93 @@
   .project-card:hover .script-pull-line { color: var(--paper); }
   .project-card:hover .script-pull-label { color: var(--accent-light); }
 
+  /* ── VIDEO ── */
+  #video { background: var(--warm-white); border-top: 1px solid var(--rule); }
+  .video-wrap {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid var(--rule);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .video-wrap iframe {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    border: 0;
+  }
+
+  /* ── BLOG ── */
+  #blog { background: var(--paper); border-top: 1px solid var(--rule); }
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+  .blog-card {
+    background: var(--card-bg);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .blog-card::after {
+    content: ''; position: absolute; left: 0; bottom: 0; height: 2px;
+    background: var(--accent); width: 0; transition: width 0.4s ease;
+  }
+  .blog-card:hover { background: var(--ink); }
+  .blog-card:hover::after { width: 100%; }
+  .blog-card-img {
+    width: 100%; height: 200px; object-fit: cover; display: block;
+    filter: grayscale(20%);
+    transition: filter 0.3s, opacity 0.3s;
+  }
+  .blog-card:hover .blog-card-img { filter: grayscale(0%); opacity: 0.85; }
+  .blog-card-body { padding: 2rem; flex: 1; display: flex; flex-direction: column; }
+  .blog-card-tag {
+    font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.75rem; display: block;
+    transition: color 0.25s;
+  }
+  .blog-card:hover .blog-card-tag { color: var(--accent-light); }
+  .blog-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem; font-weight: 700; line-height: 1.35;
+    margin-bottom: 0.75rem; transition: color 0.25s;
+  }
+  .blog-card:hover .blog-card-title { color: var(--paper); }
+  .blog-card-snippet {
+    font-size: 0.87rem; color: var(--muted); line-height: 1.75;
+    flex: 1; transition: color 0.25s;
+  }
+  .blog-card:hover .blog-card-snippet { color: rgba(247,243,238,0.6); }
+  .blog-card-footer {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-top: 1.5rem; padding-top: 1rem;
+    border-top: 1px solid var(--rule);
+    transition: border-color 0.25s;
+  }
+  .blog-card:hover .blog-card-footer { border-color: rgba(247,243,238,0.12); }
+  .blog-card-date {
+    font-size: 0.7rem; letter-spacing: 0.08em; color: var(--muted);
+    transition: color 0.25s;
+  }
+  .blog-card:hover .blog-card-date { color: rgba(247,243,238,0.4); }
+  .blog-card-read {
+    font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--ink); text-decoration: none; transition: color 0.25s;
+    display: flex; align-items: center; gap: 0.4rem;
+  }
+  .blog-card:hover .blog-card-read { color: var(--accent-light); }
+  @media (max-width: 900px) {
+    .blog-grid { grid-template-columns: 1fr; }
+  }
+
   /* ── CONTACT ── */
   #contact {
     background: var(--ink); color: var(--paper);
@@ -397,6 +484,8 @@
     <li><a href="#about">About</a></li>
     <li><a href="#expertise">Expertise</a></li>
     <li><a href="#projects">Work</a></li>
+    <li><a href="#video">Video</a></li>
+    <li><a href="#blog">Blog</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -646,6 +735,72 @@
         </div>
       </div>
       <div class="proj-arrow">→</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video">
+  <div class="section-header reveal">
+    <span class="section-label">Featured</span>
+    <h2 class="section-title">Watch</h2>
+  </div>
+  <div class="video-wrap reveal">
+    <iframe
+      src="https://www.youtube.com/embed/PWfYBIF1_b4"
+      title="Featured Video"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen>
+    </iframe>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <div class="section-header reveal">
+    <span class="section-label">Writing</span>
+    <h2 class="section-title">From the blog</h2>
+  </div>
+  <div class="blog-grid">
+
+    <div class="blog-card reveal">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1512758017271-d7b84c2113f1?w=600&q=80" alt="Brand voice blog post">
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Brand Storytelling</span>
+        <h3 class="blog-card-title">Why Your Brand Voice Is the Most Underrated Asset You Have</h3>
+        <p class="blog-card-snippet">Most companies spend months perfecting their visual identity and five minutes on how they actually sound. Here's why that's the wrong order — and how to fix it.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">March 2026</span>
+          <a class="blog-card-read" href="#">Read →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80" alt="Change comms blog post">
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Internal Comms</span>
+        <h3 class="blog-card-title">The One Thing Leaders Get Wrong When Communicating Change</h3>
+        <p class="blog-card-snippet">They lead with the what. Employees need the why first — and then the what-does-this-mean-for-me. Getting that sequence right is the difference between trust and resistance.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">February 2026</span>
+          <a class="blog-card-read" href="#">Read →</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="blog-card reveal">
+      <img class="blog-card-img" src="https://images.unsplash.com/photo-1432888622747-4eb9a8efeb07?w=600&q=80" alt="SEO content blog post">
+      <div class="blog-card-body">
+        <span class="blog-card-tag">Content Strategy</span>
+        <h3 class="blog-card-title">SEO Content That Doesn't Read Like SEO Content</h3>
+        <p class="blog-card-snippet">Ranking and readability aren't at odds — they just require a different brief. A look at how to write for search without losing the human on the other side of the screen.</p>
+        <div class="blog-card-footer">
+          <span class="blog-card-date">January 2026</span>
+          <a class="blog-card-read" href="#">Read →</a>
+        </div>
+      </div>
     </div>
 
   </div>
